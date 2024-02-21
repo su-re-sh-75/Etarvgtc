@@ -8,11 +8,10 @@
 
 <details>
 <summary>Debugging Instructions:</summary>
-Writing your own solution is not allowed. Perform
+Writing your own solution / logic is not allowed. Perform
 the task given below by fixing the buggy code.
 Identify the logical errors in the code to get to the
-solution. Don't forget to select C++ in the IDE before
-submitting.
+solution.
 </details><br>
 
 <h3>Problem Statement:</h3>
