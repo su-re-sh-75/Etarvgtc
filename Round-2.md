@@ -2,7 +2,7 @@
 
 ## Question 1: Rearrange Geek and his Classmates
 
-[Reference Link. See Qn 2](https://practice.geeksforgeeks.org/contest/debugging/problems)
+[Reference. See Qn 2](https://practice.geeksforgeeks.org/contest/debugging/problems)
 
 [Buggy code - cpp](https://ide.geeksforgeeks.org/PFWYVCLkbp)
 
@@ -248,5 +248,156 @@ int main(){
 		cout<<"\n";
 	}
 }
+```
+</details><br>
+
+## Question 2: Efficient Polynomial Multiplication
+
+[GFG Theory Ref](https://www.geeksforgeeks.org/multiply-two-polynomials-2/)
+
+[YT Divide and Conquer](https://www.youtube.com/watch?v=6eFWMhS_PTA)
+
+[GFG Practice: normal](https://www.geeksforgeeks.org/problems/multiply-two-polynomals0721/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article)
+
+[Python code ref](https://jovian.com/indexkyou/python-divide-and-conquer-assignment)
+
+
+<details>
+<summary>Debugging Instructions:</summary>
+Writing your own solution / logic is not allowed. Perform
+the task given below by fixing the buggy code.
+Identify the logical errors in the code to get to the
+solution.
+</details><br>
+
+<h3>Problem Statement:</h3>
+<p>
+Given two polynomials represented by two arrays that contains the coefficients of poynomials, return the polynomial in form of array formed after multiplication of given polynomials.
+
+
+> For example, the arrays `[2, 0, 5, 7]` and `[3, 4, 2]` represent the polynomials $2 + 5x^2 + 7x^3$ and $3 + 4x + 2x^2$. 
+> 
+> Their product is 
+>
+> $(2 \times 3) + (2 \times 4 + 0 \times 3)x + (2 \times 2 + 3 \times 5 + 4 \times 0)x^2 + (7 \times 3 + 5 \times 4 + 0 \times 2)x^3 + (7 \times 4 + 5 \times 2)x^4 + (7 \times 2)x^5$ 
+> 
+> i.e. 
+>
+>$6 + 8x + 19x^2 + 41x^3 + 38x^4 + 14x^5$
+> 
+>It can be represented by the list `[6, 8, 19, 41, 38, 14]`.
+
+</p>
+
+<h3>Input:</h3>
+<p>
+The first line of the input contains an array of size m indicating Polynomial 1. 
+
+The second line of the input contains an array of size n indicating Polynomial 2.
+</p>
+
+<h3>Output:</h3>
+<p>
+An array indicating Product of Polynomial 1 and 2.
+</p>
+
+<details>
+<summary>Constraints:</summary>
+
+``` 
+```
+</details><br>
+
+<h3>Example:</h3>
+<h3>Sample Input:</h3>
+[2, 0, 5, 7] <br>
+[3, 4, 2] <br>
+
+<h3>Sample Output:</h3>
+[6, 8, 19, 41, 38, 14] <br>
+
+<details>
+<summary> Correct Code</summary>
+
+```python
+'''
+Polynomial Multiplication Using Divide and Conquer 
+(3 Multiplications instead of 4)
+Time Complexity: O(n^log3) or O(n^1.58)
+'''
+
+def remove_zeros(items):
+    non_zero_items = []
+    
+    for ele in items:
+        if ele != 0:
+            non_zero_items.append(ele)
+    
+    return non_zero_items
+
+def add(poly1, poly2):
+    """Add two polynomials"""
+    result = [0] * max(len(poly1), len(poly2))
+    for i in range(len(result)):
+        if i < len(poly1):
+            result[i] += poly1[i]
+        if i < len(poly2):
+            result[i] += poly2[i]
+    return result
+
+def split(poly1, poly2):
+    """Split each polynomial into two smaller polynomials"""
+    mid = max(len(poly1), len(poly2)) // 2
+    return  (poly1[:mid], poly1[mid:]), (poly2[:mid], poly2[mid:])
+
+def increase_exponent(poly, n):
+    """Multiply poly1 by x^n"""
+    return [0] * n + poly
+
+def subtract(poly1, poly2):
+    poly = [-i for i in poly2]
+    return add(poly1,poly)
+
+def multiply_optimized(poly1, poly2):
+    if len(poly1) == 0 or len(poly2) == 0:
+        return []
+    
+    if len(poly1) == 1:
+        if poly1[0] == 0:
+            return [0]
+        else:
+            return [poly1[0] * i for i in poly2]
+    elif len(poly2) == 1:
+        if poly2[0] == 0:
+            return [0]
+        else:
+            return [poly2[0] * i for i in poly1]
+    
+    n = max(len(poly1),len(poly2))
+    
+    if n%2 != 0:
+        n = n -1
+    
+    # print(n)
+    
+    A, B = split(poly1,poly2)
+    
+    Y = multiply_optimized(add(A[0], A[1]), add(B[0], B[1]))
+    U = multiply_optimized(A[0], B[0])
+    Z = multiply_optimized(A[1], B[1])
+    # print('Before:')
+    # print(Y, U, Z)
+    
+    Y = increase_exponent(subtract(Y, add(U, Z)), n //2)
+    Z = increase_exponent(Z, n)
+    
+    # print('After:')
+    # print(Y, U, Z)
+    
+    result = add(Y, add(U, Z))
+    result = remove_zeros(result)
+    return result
+    
+print(multiply_optimized([2, 0, 5, 7], [3, 4, 2]))
 ```
 </details><br>
