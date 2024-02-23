@@ -1,3 +1,17 @@
+'''
+Polynomial Multiplication Using Divide and Conquer 
+(3 Multiplications instead of 4)
+Time Complexity: O(n^log3) or O(n^1.58)
+'''
+
+# def remove_zeros(items):
+#     for ele in reversed(items):
+#         if not ele:
+#             if len(items) > 1:
+#                 del items[-1]
+#         else:
+#             break
+
 def remove_zeros(items):
     non_zero_items = []
     

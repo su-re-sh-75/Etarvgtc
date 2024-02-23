@@ -343,7 +343,7 @@ print(integer_array,product)
 0 0 0
 3 4 2
 
-0 0 0
+0 0 0 0 0
 ```
 </details><br>
 <details>
