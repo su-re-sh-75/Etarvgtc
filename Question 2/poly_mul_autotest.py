@@ -1,3 +1,32 @@
+'''
+Polynomial Multiplication Using Divide and Conquer 
+(3 Multiplications instead of 4)
+Time Complexity: O(n^log3) or O(n^1.58)
+'''
+
+import random
+
+def multiply_polynomial_test(poly1, poly2):
+    
+    degree = len(poly1) + len(poly2) - 1
+    product = [0] * degree
+
+    
+    for i in range(len(poly1)):
+        for j in range(len(poly2)):
+            product[i + j] += poly1[i] * poly2[j]
+
+    return product
+
+def generate_test_case():
+    m = random.randint(50, 100)  
+    n = random.randint(50, 100)
+    poly1 = [random.randint(10, 50) for _ in range(m)]
+    poly2 = [random.randint(10, 50) for _ in range(n)]
+
+    return m, n, poly1, poly2
+
+
 def remove_zeros(items):
     non_zero_items = []
     
@@ -70,3 +99,24 @@ def multiply_polynomial(poly1, poly2, m, n):
     result = add(Y, add(U, Z))
     result = remove_zeros(result)
     return result
+
+def main():
+    # Generate test cases
+    num_test_cases = 5
+    for i in range(num_test_cases):
+        m, n, poly1, poly2 = generate_test_case()
+        product = multiply_polynomial_test(poly1, poly2)
+        result = multiply_polynomial(poly1, poly2, m, n)
+        if result == product:
+            print("Test Passed", i+1)
+            print(f"{m} {n}")
+            print()
+            print(" ".join(map(str, poly1)))
+            print()
+            print(" ".join(map(str, poly2)))
+            print()
+            print(" ".join(map(str, product)))
+            print()
+
+if __name__ == "__main__":
+    main()
