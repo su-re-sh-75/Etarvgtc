@@ -336,7 +336,6 @@ print(integer_array,product)
 ```
 </details><br>
 <details>
-<details>
 <summary> Hidden Test Case: 4 </summary>
 
 ```
