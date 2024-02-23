@@ -252,7 +252,7 @@ int main(){
 ```
 </details><br>
 
-## Question 2: Efficient Polynomial Multiplication
+## Question 2: Polynomial Multiplication
 
 [GFG Theory Ref](https://www.geeksforgeeks.org/multiply-two-polynomials-2/)
 
@@ -289,8 +289,9 @@ solution.
 
 <h3>Input:</h3>
 <p>
-The first line of the input contains an array Arr1 of size M indicating Polynomial 1.
-<br>The second line of the input contains an array Arr 2 of size N indicating Polynomial 2.
+The first line of the input contains an array poly1 of size M indicating Polynomial 1.
+<br>
+The second line of the input contains an array poly2 of size N indicating Polynomial 2.
 </p>
 
 <h3>Output:</h3>
@@ -303,7 +304,8 @@ An array indicating Product of Polynomial 1 and 2.
 
 ``` 
 1 ≤ M, N ≤ 100
-1 ≤  Arr1[i] , Arr2[i]  ≤ 100
+
+1 ≤  poly1[i] , poly2[i]  ≤ 100
 ```
 </details><br>
 
@@ -321,7 +323,7 @@ An array indicating Product of Polynomial 1 and 2.
 <summary> DSL Code Stub</summary>
 
 ```
-function(integer_array, multiply_optimized, integer_array poly1, integer_array poly2, integer m, integer n)
+function(integer_array, multiply_polynomial, integer_array poly1, integer_array poly2, integer m, integer n)
 
 integer(m) integer(n)
 
@@ -329,7 +331,7 @@ array(integer, poly1, m, single)
 
 array(integer, poly2, n, single)
 
-invoke(integer_array, product, multiply_optimized, poly1, poly2, m, n)
+invoke(integer_array, product, multiply_polynomial, poly1, poly2, m, n)
 
 print(integer_array,product)
 ```
@@ -377,22 +379,22 @@ def subtract(poly1, poly2):
     poly = [-i for i in poly2]
     return add(poly1,poly)
 
-def multiply_optimized(poly1, poly2):
-    if len(poly1) == 0 or len(poly2) == 0:
+def multiply_polynomial(poly1, poly2, m, n):
+    if m == 0 or n == 0:
         return []
     
-    if len(poly1) == 1:
+    if m == 1:
         if poly1[0] == 0:
             return [0]
         else:
             return [poly1[0] * i for i in poly2]
-    elif len(poly2) == 1:
+    elif n == 1:
         if poly2[0] == 0:
             return [0]
         else:
             return [poly2[0] * i for i in poly1]
     
-    n = max(len(poly1),len(poly2))
+    n = max(m,n)
     
     if n%2 != 0:
         n = n -1
@@ -401,9 +403,9 @@ def multiply_optimized(poly1, poly2):
     
     A, B = split(poly1,poly2)
     
-    Y = multiply_optimized(add(A[0], A[1]), add(B[0], B[1]))
-    U = multiply_optimized(A[0], B[0])
-    Z = multiply_optimized(A[1], B[1])
+    Y = multiply_polynomial(add(A[0], A[1]), add(B[0], B[1]))
+    U = multiply_polynomial(A[0], B[0])
+    Z = multiply_polynomial(A[1], B[1])
     # print('Before:')
     # print(Y, U, Z)
     
@@ -417,6 +419,6 @@ def multiply_optimized(poly1, poly2):
     result = remove_zeros(result)
     return result
     
-print(multiply_optimized([2, 0, 5, 7], [3, 4, 2]))
+print(multiply_polynomial([2, 0, 5, 7], [3, 4, 2], 4, 3))
 ```
 </details><br>
