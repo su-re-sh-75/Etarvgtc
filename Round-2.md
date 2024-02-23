@@ -1,18 +1,12 @@
 <h1 align='center'> Round 2 Code Editing</h1>
 
+[Hackerrank support for creating qns, testcases](https://support.hackerrank.com/hc/en-us/articles/223080547-Creating-a-Custom-Checker)
+
 ## Question 1: Rearrange Geek and his Classmates
 
 [Reference. See Qn 2](https://practice.geeksforgeeks.org/contest/debugging/problems)
 
 [Buggy code - cpp](https://ide.geeksforgeeks.org/PFWYVCLkbp)
-
-<details>
-<summary>Debugging Instructions:</summary>
-Writing your own solution / logic is not allowed. Perform
-the task given below by fixing the buggy code.
-Identify the logical errors in the code to get to the
-solution.
-</details><br>
 
 <h3>Problem Statement:</h3>
 <p>
@@ -35,6 +29,13 @@ given to you in an array, such that i is the desk
 number and a[i] is the roll number of the student
 sitting on the desk, can you modify a[] to represent
 the next position of all the students ?
+
+Writing your own solution / logic is not allowed. Perform
+the task given below by fixing the buggy code.
+Identify the logical errors in the code to get to the
+solution.
+
+>Expected Time Complexity: o(n)
 </p>
 
 <h3>Input:</h3>
@@ -261,25 +262,16 @@ int main(){
 
 [Python code ref](https://jovian.com/indexkyou/python-divide-and-conquer-assignment)
 
-
-<details>
-<summary>Debugging Instructions:</summary>
-Writing your own solution / logic is not allowed. Perform
-the task given below by fixing the buggy code.
-Identify the logical errors in the code to get to the
-solution.
-</details><br>
-
 <h3>Problem Statement:</h3>
 <p>
 Given two polynomials represented by two arrays that contains the coefficients of poynomials, return the polynomial in form of array formed after multiplication of given polynomials.
-
 
 > For example, the arrays `[2, 0, 5, 7]` and `[3, 4, 2]` represent the polynomials $2 + 5x^2 + 7x^3$ and $3 + 4x + 2x^2$. 
 > 
 > Their product is 
 >
-> $(2 \times 3) + (2 \times 4 + 0 \times 3)x + (2 \times 2 + 3 \times 5 + 4 \times 0)x^2 + (7 \times 3 + 5 \times 4 + 0 \times 2)x^3 + (7 \times 4 + 5 \times 2)x^4 + (7 \times 2)x^5$ 
+> $(2 \times 3) + (2 \times 4 + 0 \times 3)x + (2 \times 2 + 3 \times 5 + 4 \times 0)x^2 + $
+> $(7 \times 3 + 5 \times 4 + 0 \times 2)x^3 + (7 \times 4 + 5 \times 2)x^4 + (7 \times 2)x^5$ 
 > 
 > i.e. 
 >
@@ -287,13 +279,18 @@ Given two polynomials represented by two arrays that contains the coefficients o
 > 
 >It can be represented by the list `[6, 8, 19, 41, 38, 14]`.
 
+Writing your own solution / logic is not allowed. Perform
+the task given below by fixing the buggy code.
+Identify the logical errors in the code to get to the
+solution.
+
+>Expected Time Complexity: O(n<sup>log3</sup>) or O(n<sup>1.58</sup>)
 </p>
 
 <h3>Input:</h3>
 <p>
-The first line of the input contains an array of size m indicating Polynomial 1. 
-
-The second line of the input contains an array of size n indicating Polynomial 2.
+The first line of the input contains an array Arr1 of size M indicating Polynomial 1.
+<br>The second line of the input contains an array Arr 2 of size N indicating Polynomial 2.
 </p>
 
 <h3>Output:</h3>
@@ -305,6 +302,8 @@ An array indicating Product of Polynomial 1 and 2.
 <summary>Constraints:</summary>
 
 ``` 
+1 ≤ M, N ≤ 100
+1 ≤  Arr1[i] , Arr2[i]  ≤ 100
 ```
 </details><br>
 
@@ -315,9 +314,29 @@ An array indicating Product of Polynomial 1 and 2.
 
 <h3>Sample Output:</h3>
 [6, 8, 19, 41, 38, 14] <br>
+<br>
+
 
 <details>
-<summary> Correct Code</summary>
+<summary> DSL Code Stub</summary>
+
+```
+function(integer_array, multiply_optimized, integer_array poly1, integer_array poly2, integer m, integer n)
+
+integer(m) integer(n)
+
+array(integer, poly1, m, single)
+
+array(integer, poly2, n, single)
+
+invoke(integer_array, product, multiply_optimized, poly1, poly2, m, n)
+
+print(integer_array,product)
+```
+</details><br>
+
+<details>
+<summary> Correct Code: Python</summary>
 
 ```python
 '''
