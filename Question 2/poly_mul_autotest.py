@@ -28,13 +28,12 @@ def generate_test_case():
 
 
 def remove_zeros(items):
-    non_zero_items = []
-    
-    for ele in items:
-        if ele != 0:
-            non_zero_items.append(ele)
-    
-    return non_zero_items
+    for ele in reversed(items):
+        if not ele:
+            if len(items) > 1:
+                del items[-1]
+        else:
+            break
 
 def add(poly1, poly2):
     """Add two polynomials"""

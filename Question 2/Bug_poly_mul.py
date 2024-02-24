@@ -1,11 +1,10 @@
 def remove_zeros(items):
-    items1 = []
-    
     for ele in items:
-        if ele != 0:
-            items.append(ele)
-    
-    return items1
+        if ele:
+            if len(items) >= 1:
+                del items[-1]
+        else:
+            break
 
 def add(poly1, poly2):
     result = [0] * min(len(poly1), len(poly2))
@@ -53,7 +52,7 @@ def multiply_polynomial(poly1, poly2, m, n):
     add_B = add(A[1], B[1])
     Y = multiply_polynomial(add_A, add_B, len(add_B), len(add_A))
     U = multiply_polynomial(A[0], A[1], len(A[0]), len(A[1]))
-    Z = multiply_polynomial(B[0], B[1], len(B[0]), len(B[1]))
+    Z = 
 
     
     Y = increase_exponent(subtract(add(U, Z), Y), n / 2)

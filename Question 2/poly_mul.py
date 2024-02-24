@@ -1,25 +1,18 @@
 '''
+Correct Answer:
+
 Polynomial Multiplication Using Divide and Conquer 
 (3 Multiplications instead of 4)
 Time Complexity: O(n^log3) or O(n^1.58)
 '''
 
-# def remove_zeros(items):
-#     for ele in reversed(items):
-#         if not ele:
-#             if len(items) > 1:
-#                 del items[-1]
-#         else:
-#             break
-
 def remove_zeros(items):
-    non_zero_items = []
-    
-    for ele in items:
-        if ele != 0:
-            non_zero_items.append(ele)
-    
-    return non_zero_items
+    for ele in reversed(items):
+        if not ele:
+            if len(items) > 1:
+                del items[-1]
+        else:
+            break
 
 def add(poly1, poly2):
     """Add two polynomials"""
@@ -82,5 +75,5 @@ def multiply_polynomial(poly1, poly2, m, n):
     # print(Y, U, Z)
     
     result = add(Y, add(U, Z))
-    result = remove_zeros(result)
+    remove_zeros(result)
     return result
