@@ -35,40 +35,59 @@ the task given below by fixing the buggy code.
 Identify the logical errors in the code to get to the
 solution.
 
->Expected Time Complexity: o(n)
+> Expected Time Complexity: o(n)
 </p>
 
 <h3>Input:</h3>
 <p>
-The first line of the input contains an integer T denoting the number of testcases. The first line of
-each test case contains an integer N, denoting the size of the array. The second line of each test
-case contains N space separated integers denoting the values arr[i] of the array.</p>
+The first line contains an integer N, denoting the size of the array. 
+
+The second line contains N space separated integers denoting the values arr[i] of the array.</p>
 
 <h3>Output:</h3>
 <p>
-For each test case, in a new line, print the elements of the modified array separated by spaces.
+Elements of the modified array separated by spaces.
 </p>
 
 <details>
 <summary>Constraints:</summary>
 
-``` 1 <= T <= 10 
-1 <= N <= 10^5 
+```
+1 <= N <= 100
 0 <= arr[i] <= N-1
 ```
 </details><br>
 
 <h3>Example:</h3>
-<h3>Sample Input:</h3>
-2 <br>
+<h3>Sample Input: 1</h3>
 6 <br>
-051243 <br>
-5 <br>
-43210 <br>
+0 5 1 2 4 3 <br>
 
-<h3>Sample Output:</h3>
-035142 <br>
-01234 <br>
+<h3>Sample Output: 1</h3>
+0 3 5 1 4 2 <br>
+
+<h3>Sample Input: 2</h3>
+5 <br>
+4 3 2 1 0 <br>
+
+<h3>Sample Output: 2</h3>
+0 1 2 3 4 <br>
+
+<details>
+<summary>DSL Code Stub:</summary>
+
+```
+function(integer_array, rearrange, integer_array arr, integer n)
+
+integer(n)
+
+array(integer, arr, n, single)
+
+invoke(integer_array, result, rearrange, arr, n)
+
+print(integer_array,result)
+```
+</details><br>
 
 
 <details>
@@ -127,42 +146,6 @@ int main(){
 		int n;
 		// taking n - size of array as input
 		cin>>n;
-		int a[n], b[n];
-		// taking input for the array
-		for(int i = 0 ;i<n;i++){
-			cin>>a[i];
-		}
-
-
-		for(int i = 0;i<n;i++){
-			b[i] = a[a[i]];
-		}
-        for(int i = 0; i < n; i++)
-            a[i] = a[i] * 1.0 / n;
-            
-		for(int i = 0;i<n;i++)
-			cout<<b[i]<<" ";
-		cout<<"\n";
-	}
-}
-```
-</details><br>
-
-<details>
-<summary>Correct Answer 3:</summary>
-
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main(){
-	int t;
-	// taking test case as input
-	cin>>t;
-	while(t--){
-		int n;
-		// taking n - size of array as input
-		cin>>n;
 		int a[n];
 		// taking input for the array
 		for(int i = 0 ;i<n;i++){
@@ -182,38 +165,46 @@ int main(){
 </details><br>
 
 <details>
-<summary>Correct Answer 4:</summary>
+<summary>ChatGPT Correct Answer:</summary>
 
 ```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-int main(){
-	int t;
-	// taking test case as input
-	cin>>t;
-	while(t--){
-		int n;
-		// taking n - size of array as input
-		cin>>n;
-		int a[n];
-		// taking input for the array
-		for(int i = 0 ;i<n;i++){
-			cin>>a[i];
-		}
+void prank(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> temp(n);
 
-		for(int i = 0;i<n;i++){
-			a[i] = a[i]+(a[a[i]]%n)*n;
-			// 5 + 3*n
-		}
-        for(int i = 0; i < n; i++)
-            a[i] = a[i] * 1.0 / n;
-            
-		for(int i = 0;i<n;i++)
-			cout<<a[i]<<" ";
-		cout<<"\n";
-	}
+    for (int i = 0; i < n; i++) {
+        temp[i] = arr[arr[i]];
+    }
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    prank(arr);
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
 ```
 </details><br>
 
@@ -254,9 +245,9 @@ solution.
 
 <h3>Input:</h3>
 <p>
-The first line of the input contains an array poly1 of size M indicating Polynomial 1.
-<br>
-The second line of the input contains an array poly2 of size N indicating Polynomial 2.
+The first line contains m, n <br>
+The second line contains an array poly1 of size m indicating Polynomial 1.<br>
+The third line contains an array poly2 of size n indicating Polynomial 2.<br>
 </p>
 
 <h3>Output:</h3>
