@@ -112,14 +112,17 @@ solution.*
 
 <h3>Input:</h3>
 <p>
-The first line contains an integer n, denoting the number of nodes. 
+The first line contains an integer key, which need to be deleted.
+
+The second line contains an integer n, denoting the number of nodes. 
 
 The next n lines contains node value in the order of insertion.
+
 </p>
 
 <h3>Output:</h3>
 <p>
-
+Inorder Traversal of modified Tree - space separated.
 </p>
 
 <details>
