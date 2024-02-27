@@ -30,10 +30,10 @@ number and a[i] is the roll number of the student
 sitting on the desk, can you modify a[] to represent
 the next position of all the students ?
 
-Writing your own solution / logic is not allowed. Perform
+*Writing your own solution / logic is not allowed. Perform
 the task given below by fixing the buggy code.
 Identify the logical errors in the code to get to the
-solution.
+solution.*
 
 > Expected Time Complexity: o(n)
 </p>
@@ -42,7 +42,8 @@ solution.
 <p>
 The first line contains an integer N, denoting the size of the array. 
 
-The second line contains N space separated integers denoting the values arr[i] of the array.</p>
+The second line contains N space separated integers denoting the values arr[i] of the array.
+</p>
 
 <h3>Output:</h3>
 <p>
@@ -90,185 +91,48 @@ print(integer_array,result)
 </details><br>
 
 
-<details>
-<summary>Correct Answer 1:</summary>
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main(){
-	int t;
-	// taking test case as input
-	cin>>t;
-	while(t--){
-		int n;
-		// taking n - size of array as input
-		cin>>n;
-		int a[n];
-		// taking input for the array
-		for(int i = 0 ;i<n;i++){
-			cin>>a[i];
-		}
-
-
-		for(int i=0; i<n; i++){
-		   a[i] = a[i] + (a[a[i] % n] % n) * n;	
-		    
-		}
-		
-		
-        for(int i = 0; i < n; i++)
-                a[i]= a[i] * 1 / n;
-            
-            
-            
-		for(int i = 0;i<n;i++)
-			cout<<a[i]<<" ";
-		cout<<"\n";
-	}
-}
-```
-</details><br>
-
-<details>
-<summary>Correct Answer 2:</summary>
-
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main(){
-	int t;
-	// taking test case as input
-	cin>>t;
-	while(t--){
-		int n;
-		// taking n - size of array as input
-		cin>>n;
-		int a[n];
-		// taking input for the array
-		for(int i = 0 ;i<n;i++){
-			cin>>a[i];
-		}
-
-
-		for(int i = 0;i<n;i++){
-			a[i] = a[i] + (a[a[i]]%n) * n;
-		}
-		for(int i = 0;i<n;i++)
-			cout<<a[i]/n<<" ";
-		cout<<"\n";
-	}
-}
-```
-</details><br>
-
-<details>
-<summary>ChatGPT Correct Answer:</summary>
-
-```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-void prank(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> temp(n);
-
-    for (int i = 0; i < n; i++) {
-        temp[i] = arr[arr[i]];
-    }
-
-    for (int i = 0; i < n; i++) {
-        arr[i] = temp[i];
-    }
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-
-    prank(arr);
-
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
-```
-</details><br>
-
-## Question 2: Polynomial Multiplication
+## Question 2: BST Deletion
 
 [GFG Theory Ref](https://www.geeksforgeeks.org/multiply-two-polynomials-2/)
 
-[YT Divide and Conquer](https://www.youtube.com/watch?v=6eFWMhS_PTA)
-
-[GFG Practice: normal](https://www.geeksforgeeks.org/problems/multiply-two-polynomals0721/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article)
-
-[Python code ref](https://jovian.com/indexkyou/python-divide-and-conquer-assignment)
-
 <h3>Problem Statement:</h3>
 <p>
-Given two polynomials represented by two arrays that contains the coefficients of poynomials, return the polynomial in form of array formed after multiplication of given polynomials.
+Given a Binary Search Tree (BST) and a key value,  debug the function to delete the node containing the given key from the BST while maintaining the properties of a BST.
 
-> For example, the arrays `[2, 0, 5, 7]` and `[3, 4, 2]` represent the polynomials $2 + 5x^2 + 7x^3$ and $3 + 4x + 2x^2$. 
-> 
-> Their product is 
+> Expected Time complexity: O(log n)
 >
-> $(2 \times 3) + (2 \times 4 + 0 \times 3)x + (2 \times 2 + 3 \times 5 + 4 \times 0)x^2 + $
-> $(7 \times 3 + 5 \times 4 + 0 \times 2)x^3 + (7 \times 4 + 5 \times 2)x^4 + (7 \times 2)x^5$ 
-> 
-> i.e. 
->
->$6 + 8x + 19x^2 + 41x^3 + 38x^4 + 14x^5$
-> 
->It can be represented by the list `[6, 8, 19, 41, 38, 14]`.
+> Expected Space Complexity: O(1)
 
-Writing your own solution / logic is not allowed. Perform
+
+*Writing your own solution / logic is not allowed. Perform
 the task given below by fixing the buggy code.
 Identify the logical errors in the code to get to the
-solution.
-
->Expected Time Complexity: O(n<sup>log3</sup>) or O(n<sup>1.58</sup>)
+solution.*
 </p>
 
 <h3>Input:</h3>
 <p>
-The first line contains m, n <br>
-The second line contains an array poly1 of size m indicating Polynomial 1.<br>
-The third line contains an array poly2 of size n indicating Polynomial 2.<br>
+The first line contains an integer n, denoting the number of nodes. 
+
+The next n lines contains node value in the order of insertion.
 </p>
 
 <h3>Output:</h3>
 <p>
-An array indicating Product of Polynomial 1 and 2.
+
 </p>
 
 <details>
 <summary>Constraints:</summary>
-1 ≤ m, n ≤ 100
 
-1 ≤  poly1[i] , poly2[i]  ≤ 100
 </details>
 
 <h3>Example:</h3>
 <h3>Sample Input:</h3>
-[2, 0, 5, 7] <br>
-[3, 4, 2] <br>
+
 
 <h3>Sample Output:</h3>
-[6, 8, 19, 41, 38, 14] <br>
+
 <br>
 
 
@@ -276,17 +140,15 @@ An array indicating Product of Polynomial 1 and 2.
 <summary> DSL Code Stub</summary>
 
 ```
-function(integer_array, multiply_polynomial, integer_array poly1, integer_array poly2, integer m, integer n)
+function(integer_binary_search_tree, delete_node, integer_binary_search_tree t, integer key)
 
-integer(m) integer(n)
+integer(key)
 
-array(integer, poly1, m, single)
+integer_binary_search_tree(t)
 
-array(integer, poly2, n, single)
+invoke(integer_binary_search_tree, result_tree, delete_node, t, key)
 
-invoke(integer_array, product, multiply_polynomial, poly1, poly2, m, n)
-
-print(integer_array,product)
+print(integer_binary_search_tree, result_tree)
 ```
 </details><br>
 
