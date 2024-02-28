@@ -131,7 +131,7 @@ none
 </details>
 
 <h3>Example:</h3>
-<h3>Sample Input 1: Also test case 1 (Tag: Present in Tree)</h3>
+<h3>Sample Input 1: Also test case 1</h3>
 
 ```
 15
@@ -145,7 +145,7 @@ none
 <h3>Sample Output:</h3>
 3 5 8 12
 <br>
-<h3>Sample Input 2: Also test case 2 (Tag: Not in Tree)</h3>
+<h3>Sample Input 2: Also test case 2</h3>
 
 ```
 7
