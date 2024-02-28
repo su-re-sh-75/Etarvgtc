@@ -127,15 +127,38 @@ Inorder Traversal of modified Tree - space separated.
 
 <details>
 <summary>Constraints:</summary>
-
+none
 </details>
 
 <h3>Example:</h3>
-<h3>Sample Input:</h3>
+<h3>Sample Input 1: Also test case 1 (Tag: Present in Tree)</h3>
 
-
+```
+15
+5
+5
+15
+3
+8
+12
+```
 <h3>Sample Output:</h3>
+3 5 8 12
+<br>
+<h3>Sample Input 2: Also test case 2 (Tag: Not in Tree)</h3>
 
+```
+7
+6
+10
+3
+8
+12
+15
+20
+```
+<h3>Sample Output:</h3>
+3 8 10 12 15 20
 <br>
 
 
@@ -156,79 +179,119 @@ print(integer_binary_search_tree, result_tree)
 </details><br>
 
 <details>
-<summary> Sample Test Case: 1 </summary>
+<summary> HiddenTest Case: 1 </summary>
 
 ```
-4 3
-2 0 5 7
-3 4 2
+10
+4
+15
+3
+8
+12
 
-6 8 19 41 38 14
+3 8 12 15
 ```
 </details><br>
 <details>
-<summary> Sample Test Case: 2 </summary>
+<summary> Hidden Test Case: 2 </summary>
 
 ```
-4 3
-1 0 3 2
-2 0 4
+45
+15
+10
+15
+21
+35
+37
+40
+50
+55
+60
+65
+70
+75
+80
+90
+53
 
-2 0 10 4 12 8
+10 15 21 35 37 40 50 53 55 60 65 70 75 80 90
 ```
 </details><br>
 <details>
 <summary> Hidden Test Case: 3 </summary>
 
 ```
-5 4
-1 9 3 4 7
-4 0 2 5
+56
+0
 
-4 36 14 39 79 23 34 35
+none
 ```
 </details><br>
 <details>
 <summary> Hidden Test Case: 4 </summary>
 
 ```
-3 3
-0 0 0
-3 4 2
+10
+15
+10
+14
+5
+15
+3
+8
+12
+18
+1
+7
+9
+11
+13
+17
+20
 
-0
+1 3 5 7 8 9 11 12 13 14 15 17 18 20
 ```
 </details><br>
 <details>
 <summary> Hidden Test Case: 5 </summary>
 
 ```
-3 2
-0 0 0
-0 0
+70
+12
+50
+25
+10
+5
+15
+30
+75
+60
+70
+90
+80
+85
 
-0
+5 10 15 25 30 50 60 75 80 85 90
 ```
 </details><br>
 <details>
 <summary> Hidden Test Case: 6 </summary>
 
 ```
-5 4
-2 0 5 7 5
-3 4 2 1
+3
+11
+8
+3
+1
+5
+7
+12
+10
+9
+11
+15
+18
 
-6 8 19 43 53 39 17 5
+1 5 7 8 9 10 11 12 15 18
 ```
-</details><br>
-<details>
-<summary> Hidden Test Case: 7 </summary>
-
-```
-5 3
-2 0 5 0 0
-3 4 2
-
-6 8 19 20 10
-```
-</details><br>
+</details>
